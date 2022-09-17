@@ -10,6 +10,7 @@ const wordsCopy = [...words]
 const wordsToLearn = []
 let randomIndex, action
 let badAnswers = 0
+
 const displayWord = () =>{
   randomIndex = Math.floor(Math.random()*wordsCopy.length)
   ukrainianWord.textContent = wordsCopy[randomIndex].polWord
@@ -62,5 +63,19 @@ const handleSubmit= e => {
     location.reload()
   }
 }
+
+const showAll = () =>{
+  document.body.textContent= ""
+  words.forEach(({polWord, ukrWord})=>{
+    document.body.innerHTML += `${polWord}: ${ukrWord}<br>`
+      })
+  document.body.append(btn)
+  btn.textContent = "Zacznij od nowa"
+  btn.addEventListener("click", ()=>{
+    location.reload()
+  })
+}
+
+showAllBtn.addEventListener("click", showAll)
 
 form.addEventListener("submit", handleSubmit)
