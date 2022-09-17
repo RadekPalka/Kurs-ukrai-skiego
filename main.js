@@ -6,11 +6,10 @@ const messageParagraph = document.querySelector(".message")
 const btn = document.querySelector("button")
 const showAllBtn = document.querySelector(".show-all")
 const ukrainianWord = document.querySelector(".ukrainian-word")
-
-
 const wordsCopy = [...words]
-let randomIndex
-let action 
+const wordsToLearn = []
+let randomIndex, action
+let badAnswers = 0
 const displayWord = () =>{
   randomIndex = Math.floor(Math.random()*wordsCopy.length)
   ukrainianWord.textContent = wordsCopy[randomIndex].polWord
@@ -21,14 +20,17 @@ const displayWord = () =>{
 displayWord()
 
 const summary = () =>{
-  messageParagraph.textContent = "Koniec lekcji"
+  messageParagraph.innerHTML = `Koniec lekcji.<br>Ilość wyrazów: ${words.length}<br>lość złych odpowiedzi: ${badAnswers}`
+  if (wordsToLearn.length >0){
+    messageParagraph.innerHTML +=`<br>Wyrazy które musisz powtórzyć: ${wordsToLearn.join(", ")}`
+  }
   btn.textContent = "Powtórz lekcję"
   action = "repeat"
 }
 
 const check = () =>{
-  
-  if (input.value.toLowerCase() === wordsCopy[randomIndex].ukrWord){
+  const {polWord, ukrWord} = wordsCopy[randomIndex]
+  if (input.value.toLowerCase() === ukrWord){
     messageParagraph.textContent= "Dobrze !!!"
     wordsCopy.splice(randomIndex, 1)
     if (wordsCopy.length === 0){
@@ -36,6 +38,10 @@ const check = () =>{
     }
   }
   else{
+    badAnswers ++
+    if (!wordsToLearn.includes(polWord)){
+      wordsToLearn.push(polWord)
+    }
     messageParagraph.textContent= "Źle !!!"
   }
   action = "next"
@@ -43,11 +49,11 @@ const check = () =>{
 
 const handleSubmit= e => {
   e.preventDefault()
-  if (action === "check" && wordsCopy.length >0){
+  if (action === "check"){
     btn.textContent = "Następny wyraz"
     check()
   }
-  else if (wordsCopy.length >0 && action === "next"){
+  else if (action === "next"){
     messageParagraph.textContent = ""
     btn.textContent = "Sprawdź"
     displayWord()
