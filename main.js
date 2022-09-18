@@ -69,10 +69,14 @@ const handleSubmit= e => {
 
 const showAll = () =>{
   document.body.textContent= ""
+  document.body.classList.add("show-everythig")
   words.forEach(({polWord, ukrWord})=>{
     document.body.innerHTML += `${polWord}: ${ukrWord}<br>`
       })
+  document.body.innerHTML +="<br>"
   document.body.append(btn)
+  btn.style.display= "block"
+  btn.style.margin="10px auto"
   btn.textContent = "Zacznij od nowa"
   btn.addEventListener("click", ()=>{
     location.reload()
