@@ -30,9 +30,6 @@ const summary = () =>{
 }
 
 const check = () =>{
-  if (!input.value) {
-    return messageParagraph.textContent = "Musisz coś wpisać"
-  }
   const {polWord, ukrWord} = wordsCopy[randomIndex]
   if (input.value.toLowerCase() === ukrWord){
     messageParagraph.textContent= "Dobrze !!!"
@@ -69,7 +66,7 @@ const handleSubmit= e => {
 
 const showAll = () =>{
   document.body.textContent= ""
-  document.body.classList.add("show-everythig")
+  document.body.classList.add("show-everything")
   words.forEach(({polWord, ukrWord})=>{
     document.body.innerHTML += `${polWord}: ${ukrWord}<br>`
       })
