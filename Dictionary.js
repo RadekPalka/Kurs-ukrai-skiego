@@ -1,5 +1,5 @@
 const words = []
-class Word {
+class Dictionary {
   constructor(polWord, ukrWord){
     this.polWord = polWord
     this.ukrWord = ukrWord
