@@ -20,7 +20,7 @@ const displayWord = () =>{
 displayWord()
 
 const summary = () =>{
-  messageParagraph.innerHTML = `Koniec lekcji.<br>Ilość wyrazów: ${words.length}<br>lość złych odpowiedzi: ${badAnswers}`
+  messageParagraph.innerHTML = `Koniec lekcji.<br>Ilość wyrazów: ${words.length}<br>Ilość złych odpowiedzi: ${badAnswers}`
   if (wordsToLearn.length >0){
     messageParagraph.innerHTML +=`<br>Wyrazy które musisz powtórzyć: ${wordsToLearn.join(", ")}`
   }
@@ -74,7 +74,7 @@ const showAll = () =>{
       })
   main.innerHTML +="<br>"
   main.append(btn)
-  console.log(main)
+  
   btn.style.display= "block"
   btn.style.margin="10px auto"
   btn.textContent = "Zacznij od nowa"
