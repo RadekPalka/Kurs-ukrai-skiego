@@ -1,3 +1,4 @@
+const main = document.querySelector("main")
 const form= document.querySelector("form")
 const input = document.querySelector("input")
 const messageParagraph = document.querySelector(".message")
@@ -30,7 +31,7 @@ const summary = () =>{
 const check = () =>{
   const userWord = input.value.toLowerCase()
   window.focus()
-  const {polWord, ukrWord: ukrWords} = wordsCopy[randomIndex]
+  const {polWord, ukrWords} = wordsCopy[randomIndex]
   if ( ukrWords.includes(userWord)){
     messageParagraph.textContent= "Dobrze !!!"
     wordsCopy.splice(randomIndex, 1)
@@ -65,13 +66,15 @@ const handleSubmit= e => {
 }
 
 const showAll = () =>{
-  document.body.textContent= ""
-  document.body.classList.add("show-everything")
-  words.forEach(({polWord, ukrWord: ukrWords})=>{
-    document.body.innerHTML += `${polWord}: <span style="color: red">${ukrWords.join("<span style='color: black'> lub, </span>")}</span><br>`
+  main.textContent= ""
+  main.classList.add("show-everything")
+  words.forEach(({polWord, ukrWords})=>{
+    
+    main.innerHTML += `${polWord}: <span style="color: red">${ukrWords.join("<span style='color: black'> lub, </span>")}</span><br>`
       })
-  document.body.innerHTML +="<br>"
-  document.body.append(btn)
+  main.innerHTML +="<br>"
+  main.append(btn)
+  console.log(main)
   btn.style.display= "block"
   btn.style.margin="10px auto"
   btn.textContent = "Zacznij od nowa"
