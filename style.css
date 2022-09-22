@@ -12,6 +12,9 @@ h1{
   font-size: 32px;
   margin-top: 2vh;
 }
+h2{
+  margin-top: 1vh;
+}
 p{
   /* font-size: 22px; */
   margin: 10px 0 0 0;
@@ -22,6 +25,9 @@ form{
 p.ukrainian-word{
   color:yellow
 }
+.show-all{
+  margin-bottom: 10px;
+}
 input, button{
   height: 30px;
   font-size: 22px;
@@ -31,7 +37,19 @@ input, button{
 .show-everything{
   padding-top: 50px;
   justify-content: center;
-  
-  
-}
+ }
+ ul{
+  margin-top: 2vh;
+ }
+ li{
+  margin-top: 1vh;
+ }
+ a{
+  text-decoration: none;
+  color: #444;
+  transition: color .5s;
+ }
+ a:hover{
+  color: #888;
+ }
 
