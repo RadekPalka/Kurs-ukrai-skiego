@@ -67,8 +67,8 @@ const handleSubmit= e => {
 const showAll = () =>{
   document.body.textContent= ""
   document.body.classList.add("show-everything")
-  words.forEach(({polWord, ukrWord})=>{
-    document.body.innerHTML += `${polWord}: ${ukrWord}<br>`
+  words.forEach(({polWord, ukrWord: ukrWords})=>{
+    document.body.innerHTML += `${polWord}: <span style="color: red">${ukrWords.join("<span style='color: black'> lub, </span>")}</span><br>`
       })
   document.body.innerHTML +="<br>"
   document.body.append(btn)
