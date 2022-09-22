@@ -1,5 +1,3 @@
-import  {words}  from "./Dictionary.js"
-
 const form= document.querySelector("form")
 const input = document.querySelector("input")
 const messageParagraph = document.querySelector(".message")
@@ -30,8 +28,10 @@ const summary = () =>{
 }
 
 const check = () =>{
-  const {polWord, ukrWord} = wordsCopy[randomIndex]
-  if (input.value.toLowerCase() === ukrWord){
+  const userWord = input.value.toLowerCase()
+  window.focus()
+  const {polWord, ukrWord: ukrWords} = wordsCopy[randomIndex]
+  if ( ukrWords.includes(userWord)){
     messageParagraph.textContent= "Dobrze !!!"
     wordsCopy.splice(randomIndex, 1)
     if (wordsCopy.length === 0){
@@ -43,7 +43,7 @@ const check = () =>{
     if (!wordsToLearn.includes(polWord)){
       wordsToLearn.push(polWord)
     }
-    messageParagraph.textContent= `Źle !!! Prawidłowa odpowied to ${ukrWord}`
+    messageParagraph.textContent= `Źle !!! Prawidłowa odpowiedź to ${ukrWords}`
   }
   action = "next"
 }
