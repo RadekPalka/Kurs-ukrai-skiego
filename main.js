@@ -43,7 +43,14 @@ const check = () =>{
     if (!wordsToLearn.includes(polWord)){
       wordsToLearn.push(polWord)
     }
-    messageParagraph.innerHTML= `Źle !!! Prawidłowa odpowiedź to: <span style="color: red">${ukrWords.join(" lub, ")}</span>`
+    let text = "Źle !!! Prawidłowa odpowiedź to: "
+    ukrWords.forEach((word ,index) =>{
+      text += `<span style='color: red'>${word}</span>`
+      if(index !==ukrWords.length-1){
+        text += " lub, "
+      }
+    }) 
+    messageParagraph.innerHTML= text
   }
   action = "next"
 }
