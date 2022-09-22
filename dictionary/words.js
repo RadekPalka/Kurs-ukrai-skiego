@@ -1,12 +1,3 @@
-const words = []
-class Dictionary {
-  constructor(polWord, ...ukrWords){
-    this.polWord = polWord
-    this.ukrWord = [...ukrWords]
-    words.push(this)
-  }
-}
-
 const word1 = new Dictionary("przepraszam", "вибачте")
 const word2 = new Dictionary("proszę (np. o pomoc)", "будь ласка")
 const word3 = new Dictionary("co słychać", "як справи")
