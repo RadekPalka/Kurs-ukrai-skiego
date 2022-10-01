@@ -8,6 +8,9 @@ body{
   background-color: deepskyblue;
   font-size: 22px;
 }
+main{
+  width: ;
+}
 h1{
   font-size: 32px;
   margin-top: 2vh;
@@ -51,5 +54,12 @@ input, button{
  }
  a:hover{
   color: #888;
+ }
+ .row{
+  display: flex;
+ }
+ .letter{
+  box-sizing: content-box;
+  padding: 4px;
  }
 
