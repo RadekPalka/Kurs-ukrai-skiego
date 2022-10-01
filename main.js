@@ -83,7 +83,13 @@ const showAll = () =>{
     location.reload()
   })
 }
-
+console.log(letterButtons)
+for (const btn of letterButtons){
+ btn.addEventListener("click", () =>{
+  console.log("it work")
+  input.value += btn.textContent
+ })
+}
 showAllBtn.addEventListener("click", showAll)
 
 form.addEventListener("submit", handleSubmit)
