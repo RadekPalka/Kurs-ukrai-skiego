@@ -30,8 +30,8 @@ const summary = () =>{
 }
 
 const check = () =>{
-  const userWord = input.value.toLowerCase()
-  window.focus()
+  const userWord = input.value
+  
   const {polWord, ukrWords} = wordsCopy[randomIndex]
   if ( ukrWords.includes(userWord)){
     messageParagraph.textContent= "Dobrze !!!"
@@ -83,10 +83,10 @@ const showAll = () =>{
     location.reload()
   })
 }
-console.log(letterButtons)
+
 for (const btn of letterButtons){
  btn.addEventListener("click", () =>{
-  console.log("it work")
+  input.select()
   input.value += btn.textContent
  })
 }

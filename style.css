@@ -37,6 +37,7 @@ input, button{
   padding: 0px 2px;
   margin-top: 10px;
 }
+
 .show-everything{
   padding-top: 50px;
   justify-content: center;
@@ -61,5 +62,8 @@ input, button{
  .letter{
   box-sizing: content-box;
   padding: 4px;
+ }
+ .space{
+  width: 300px;
  }
 
