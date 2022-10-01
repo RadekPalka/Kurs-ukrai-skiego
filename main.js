@@ -5,6 +5,7 @@ const messageParagraph = document.querySelector(".message")
 const btn = document.querySelector("button")
 const showAllBtn = document.querySelector(".show-all")
 const ukrainianWord = document.querySelector(".ukrainian-word")
+const letterButtons = document.querySelectorAll("button.letter")
 const wordsCopy = [...words]
 const wordsToLearn = []
 let randomIndex, action
