@@ -6,6 +6,7 @@ const btn = document.querySelector("button")
 const showAllBtn = document.querySelector(".show-all")
 const ukrainianWord = document.querySelector(".ukrainian-word")
 const letterButtons = document.querySelectorAll("button.letter")
+const backspaceButton = document.querySelector("button.backspace")
 const wordsCopy = [...words]
 const wordsToLearn = []
 let randomIndex, action
@@ -84,6 +85,12 @@ const showAll = () =>{
   })
 }
 
+const eraseLastLetter = () =>{
+  const lastLetterIndex = input.value.length-1
+  input.value = input.value.substring(0, lastLetterIndex )
+  input.focus()
+}
+
 for (const btn of letterButtons){
  btn.addEventListener("click", () =>{
   input.select()
@@ -91,5 +98,7 @@ for (const btn of letterButtons){
  })
 }
 showAllBtn.addEventListener("click", showAll)
+
+backspaceButton.addEventListener("click", eraseLastLetter)
 
 form.addEventListener("submit", handleSubmit)
